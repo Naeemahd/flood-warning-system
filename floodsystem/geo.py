@@ -68,3 +68,7 @@ def stations_by_river(stations,testriver):
     #Now sort the list alphabetically
     string = sorted(string)
     return string
+
+   #task 1E
+
+   #make list of river names and station number ordered in number of stations- return greatest N

@@ -41,3 +41,20 @@ def stations_within_radius(stations, centre, r):
         if(tuple[2]<r):
             count_of_stations += 1
     return count_of_stations
+
+'''task 1C'''
+
+'''make set of rivers in alphabetical order'''
+
+def rivers_with_station(stations):
+
+    rws = set()
+    count_of_rivers = 0
+    for i in range(len(stations)):
+        rws.add(stations[i].river)
+    rws = sorted(rws) 
+    return rws
+   
+    '''add(elem)'''
+
+'''print names ofe ach stations for  river in alphabetical order'''

@@ -42,19 +42,29 @@ def stations_within_radius(stations, centre, r):
             count_of_stations += 1
     return count_of_stations
 
-'''task 1C'''
-
-'''make set of rivers in alphabetical order'''
-
+#TASK 1D
+#Returns an alphabetical list of all the rivers with stations
 def rivers_with_station(stations):
-
+    #Make a blank set to fill
     rws = set()
-    count_of_rivers = 0
     for i in range(len(stations)):
+        #Loop through each station and add the river, no duplicates will be added
         rws.add(stations[i].river)
+    #Now sort the set, sorted returns it alphabetically
     rws = sorted(rws) 
     return rws
    
-    '''add(elem)'''
-
-'''print names ofe ach stations for  river in alphabetical order'''
+#Returns a list of stations on any given river
+def stations_by_river(stations,testriver):
+    #Create an empty list called String 
+    string = []
+    #For each station item, get the river and the name
+    #If the river matches the given river then add it to the list
+    for i in range(len(stations)): 
+        test=stations[i].river
+        name=stations[i].name
+        if test == testriver:
+            string.append(name)
+    #Now sort the list alphabetically
+    string = sorted(string)
+    return string

@@ -69,6 +69,31 @@ def stations_by_river(stations,testriver):
     string = sorted(string)
     return string
 
-   #task 1E
+#Task 1E
 
-   #make list of river names and station number ordered in number of stations- return greatest N
+#make list of river names and station number ordered in number of stations- return greatest N
+def rivers_by_station_number(stations,N):
+    # Make a list of the river names
+    list_rivers = rivers_with_station(stations)
+    # Make an empty list for the count of stations
+    list_count = []
+    # For each river, find the number of stations
+    for i in range(len(list_rivers)):
+        river = list_rivers[i]
+        # Reset count for each new river
+        count = 0
+        # Loop through list of all the stations, adding to the count for each river match
+        for j in range(len(stations)): 
+            test=stations[j].river
+            if test==river:
+                count += 1
+        # When count is finished for each river, add the number to the list of counts
+        list_count.append(count)
+ 
+    # Make a dictionary of the river names and number of stations
+    dict_riverscount = dict(zip(list_rivers,list_count))
+    # Sort the dictionary by rivers with most stations first
+    sort_dict = sorted(dict_riverscount.items(), key=lambda x: x[1], reverse=True)
+    # Return the first N items of the dictionary
+    return sort_dict[:N]
+

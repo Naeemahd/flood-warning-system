@@ -5,7 +5,7 @@ def run5():
     # Create list with all the station data
     stations = build_station_list()
     # Define N here, the number of top rivers to return
-    N = 9
+    N = 7
     print("Top {} rivers with most stations: {}".format(N,rivers_by_station_number(stations,N)))
     return
 

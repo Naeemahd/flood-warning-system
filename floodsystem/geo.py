@@ -95,5 +95,9 @@ def rivers_by_station_number(stations,N):
     # Sort the dictionary by rivers with most stations first
     sort_dict = sorted(dict_riverscount.items(), key=lambda x: x[1], reverse=True)
     # Return the first N items of the dictionary
-    return sort_dict[:N]
+   ''' for i in range(len(dict_riverscount)):
+        if dict_riverscount[i, list_count] == sorted_dict[:N, list_count]:
+            return dict_riverscount[i]
+    return sort_dict[:N]'''
 
+  

@@ -69,7 +69,7 @@ def stations_by_river(stations,testriver):
     string = sorted(string)
     return string
 
-#Task 1E
+#task 1E
 
 #make list of river names and station number ordered in number of stations- return greatest N
 def rivers_by_station_number(stations,N):
@@ -94,10 +94,21 @@ def rivers_by_station_number(stations,N):
     dict_riverscount = dict(zip(list_rivers,list_count))
     # Sort the dictionary by rivers with most stations first
     sort_dict = sorted(dict_riverscount.items(), key=lambda x: x[1], reverse=True)
-    # Return the first N items of the dictionary
-   ''' for i in range(len(dict_riverscount)):
-        if dict_riverscount[i, list_count] == sorted_dict[:N, list_count]:
-            return dict_riverscount[i]
-    return sort_dict[:N]'''
+    # Sort the list of count of stations (so it matches the dictionary) 
+    list_count.sort(reverse=True)
+    # Check if the Nth item and the Nth +1 item have the same count (if so then they are ==Nth and should both be included)
+    # Use an iterative function to check that all Nth= terms have been found
+    # This function will define a new N that includes all Nth= terms
+    N = n_equal_check(list_count,N)
+    # Return the first N items
+    return sort_dict[:N]
 
+# This function is part of Task1E, it is a recursion to find all Nth equal terms
+def n_equal_check(list_count, N):
+    # It finds the Nth and Nth+1 terms and checks if their count is the same
+    if list_count[N-1]==list_count[N]:
+        #If count is the same, then it adds 1 to the value of N stored and calls the function again
+        N +=1
+        n_equal_check(list_count,N)
+    return N
   

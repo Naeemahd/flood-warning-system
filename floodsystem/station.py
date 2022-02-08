@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: MIT
 """This module provides a model for a monitoring station, and tools
 for manipulating/modifying station data
-
 """
 
+from pickle import FALSE
+from tkinter import TRUE
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -26,6 +27,7 @@ class MonitoringStation:
         self.typical_range = typical_range
         self.river = river
         self.town = town
+        self.check = 0 ################################### MODIFIED ########################################
 
         self.latest_level = None
 
@@ -36,5 +38,33 @@ class MonitoringStation:
         d += "   coordinate:    {}\n".format(self.coord)
         d += "   town:          {}\n".format(self.town)
         d += "   river:         {}\n".format(self.river)
-        d += "   typical range: {}".format(self.typical_range)
+        d += "   typical range: {}\n".format(self.typical_range)
         return d
+
+    def typical_range_consistent(self):
+        # Get typical range attribute from item
+        for i in range(len(self)):
+            # Assign a boolean variable - if it passes all tests, will be assigned TRUE else FALSE
+            # Test typical range values
+            check = TRUE
+            test = self[i].typical_range
+            if test == None:
+                check = FALSE
+            elif test[0]>test[1]:
+                check = FALSE
+            #elif test[0]<0:
+            #    check = FALSE
+            setattr(self[i],"check",check)
+        # If all tests are passed then check = TRUE
+        # log new attribute to item called "check" - that reads true or false
+        
+        return
+    
+def inconsistent_typical_range_stations(stations):
+    MonitoringStation.typical_range_consistent(stations)
+    error_list = []
+
+    for i in range(len(stations)):
+        if stations[i].check == FALSE:
+            error_list.append(stations[i].name)
+    return error_list

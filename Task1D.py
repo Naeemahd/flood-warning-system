@@ -48,4 +48,5 @@ def test_stations_by_river():
     test5 = (s, acs)
     testx = 'River X'#(river, ariver)
     test4 = stations_by_river(test5,testx)
-    return test4
+    print("ejnjn")
+    print( test4)

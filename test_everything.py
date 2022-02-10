@@ -1,5 +1,6 @@
-from floodsystem.geo import stations_by_distance,build_lists,rivers_with_station,stations_by_river
+from floodsystem.geo import stations_by_distance,build_lists,rivers_with_station,stations_by_river,n_equal_check
 from floodsystem.station import MonitoringStation
+
 
 def test_stations_by_distance():
     list1 =((1,0), (1,0), (1,0))

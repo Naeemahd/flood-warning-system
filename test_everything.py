@@ -53,4 +53,5 @@ def test_stations_by_river():
     test5 = (s, acs)
     testx = 'River X'#(river, ariver)
     test4 = stations_by_river(test5,testx)
-    assert test4 == ['River X']
+    assert test4 == ['some station', 'some station']
+

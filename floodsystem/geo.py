@@ -31,16 +31,18 @@ def build_lists(stations,p):
     #Then merges the three lists into a list of tuples
     list_tuple = list(zip(list_names, list_towns, list_distance))
     return list_tuple
+
 def stations_within_radius(stations, centre, r):
     list_tuple = build_lists(stations,centre)
     #now sort list of tuples by the 3rd part - distance
     list_tuple.sort(key=lambda x:x[2])
-    count_of_stations = 0
+    list_stations = []
     for i in range(len(list_tuple)):
         tuple = (list_tuple[i])
         if(tuple[2]<r):
-            count_of_stations += 1
-    return count_of_stations
+            list_stations.append(tuple[0])
+    list_stations.sort()
+    return list_stations
 
 #TASK 1D
 #Returns an alphabetical list of all the rivers with stations

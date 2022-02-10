@@ -5,6 +5,7 @@ def test_stations_by_distance():
     list1 =((1,0), (1,0), (1,0))
     p = (0,0)
     test1 = stations_by_distance(list1, p)
+    return
     
 
 def test_build_lists():
@@ -15,6 +16,7 @@ def test_build_lists():
     p = (0,0)
     #This then runs the function above and finds the distance from the point
     list_distance = (stations_by_distance(list_coord, p))  
+    return
 
 def tes_rivers_with_station():
  
@@ -22,7 +24,19 @@ def tes_rivers_with_station():
     
     rws = sorted(rws) 
     assert rws == ('apple', 'banana', 'pear', 'orange')
+    return
 
+def test_nequalcheck():
+    list_count = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
+    #list_count = [1,2,3,4,5,6,7,8,9,10]
+    N1=4
+    N2=6
+    N1 = n_equal_check(list_count,N1)
+    N2 = n_equal_check(list_count,N2)
+    assert N1 == 6
+    assert N2 == 6
+    return
+    
 s_id = "test-s-id"
 m_id = "test-m-id"
 label = "some station"

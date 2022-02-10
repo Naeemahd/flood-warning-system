@@ -109,6 +109,6 @@ def n_equal_check(list_count, N):
     if list_count[N-1]==list_count[N]:
         #If count is the same, then it adds 1 to the value of N stored and calls the function again
         N +=1
-        n_equal_check(list_count,N)
+        N = n_equal_check(list_count,N)
     return N
   

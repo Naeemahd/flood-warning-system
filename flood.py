@@ -1,11 +1,15 @@
 def stations_highest_rel_level(stations, N):
-    high_level = []
+    #create empty lists
+    level = []
     names=[]
+    #loops through stations list and add the names and water levels
     for i in range(len(stations)):
-        high_level.append(stations[i].latest_level)
+        level.append(stations[i].latest_level)
         names.append(stations[i].name)
-    list_tuple = list(zip(names, high_level))    
+    #puts lists together    
+    list_tuple = list(zip(names, level))    
+    #sorts list by water level low to high
     list_tuple.sort(key= lambda x:x[1])  
-    #return list_tuple 
+    #print last N terms of list_tuple 
     for i in range(N):
-        print(list_tuple[i]) 
+        print(list_tuple[(-1*i)-1]) 

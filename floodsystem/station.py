@@ -59,7 +59,25 @@ class MonitoringStation:
         # log new attribute to item called "check" - that reads true or false
         
         return
-    
+    #For Task 2B
+    def relative_water_level(self):
+            
+        for i in range(len(self)):
+            # get the typical range and define the low and high points
+            typical_range = self[i].typical_range
+            height = self[i].latest_level 
+            if typical_range == None:
+                fraction = None
+            elif height == None:
+                fraction = None
+            else:
+                low = typical_range[0]
+                high = typical_range[1]
+                # Calculate the relative water level
+                fraction = (height-low)/(high-low)
+            setattr(self[i],"fraction",fraction)
+        return
+
 def inconsistent_typical_range_stations(stations):
     MonitoringStation.typical_range_consistent(stations)
     error_list = []
@@ -68,3 +86,7 @@ def inconsistent_typical_range_stations(stations):
         if stations[i].check == FALSE:
             error_list.append(stations[i].name)
     return error_list
+    
+def relative_water_level_all(stations):
+    MonitoringStation.relative_water_level(stations)
+    return stations

@@ -36,7 +36,7 @@ def stations_highest_rel_level_with_historical(stations, N):
                 dates, levels = fetch_measure_levels(
                 stations[i].measure_id, dt=datetime.timedelta(days=dt))
                 if dates == [] or levels == []:
-                    print("No historical data available for the current station: {}".format(stations[j].name))
+                    print("No historical data available for the current station: {}".format(stations[i].name))
                 else:
                     rel_level.append(stations[i].fraction)
                     names.append(stations[i].name)

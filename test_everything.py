@@ -70,3 +70,12 @@ def test_stations_by_river():
     test4 = stations_by_river(test5,testx)
     assert test4 == ['some station', 'some station']
 
+def test_update_water_levels():
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)

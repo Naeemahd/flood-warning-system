@@ -8,6 +8,11 @@ def run7():
     update_water_levels(stations)
     stations = relative_water_level_all(stations)
     N=10
-    stations_highest_rel_level(stations, N)
+    list_tuple = stations_highest_rel_level(stations, N)
+    
+    for i in range(N):
+        print("Station name and relative level: {}, {}".format(
+                list_tuple[i][0], list_tuple[i][1]))
+    #print last N terms of list_tuple 
     return
 run7()    

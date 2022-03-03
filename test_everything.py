@@ -1,5 +1,6 @@
 from floodsystem.geo import stations_by_distance,build_lists,rivers_with_station,stations_by_river,n_equal_check
 from floodsystem.station import MonitoringStation
+from floodsystem.station import relative_water_level_all
 
 
 def test_stations_by_distance():
@@ -79,3 +80,18 @@ def test_update_water_levels():
     river = "River X"
     town = "My Town"
     s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+def test_relativewaterlevel():
+
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (0, 2)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    rivers = []
+    rivers.append(s)
+    test6 = relative_water_level_all(rivers)
+    assert test6 != 0
